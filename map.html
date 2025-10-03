@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>StudyHub — Geolocation</title>
+    <meta name="description" content="HTML5 Geolocation demo with a simple map preview." />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="./assets/css/main.css" rel="stylesheet" />
+    <style>
+        .map-card { border-radius: 1rem; }
+        .map-box { min-height: 320px; border-radius: .75rem; overflow: hidden; }
+        .map-img { width: 100%; height: 100%; object-fit: cover; }
+        .kv { font-variant-numeric: tabular-nums; }
+    </style>
+</head>
+<body class="bg-body-tertiary">
+<nav class="navbar navbar-expand-lg bg-body shadow-sm sticky-top">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="./index.html">StudyHub</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNav">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link" href="./index.html#notes">Notes</a></li>
+                <li class="nav-item"><a class="nav-link" href="./tasks.html">Pomodoro</a></li>
+                <li class="nav-item"><a class="nav-link" href="./canvas.html">Canvas</a></li>
+                <li class="nav-item"><a class="nav-link" href="./forms.html">Form</a></li>
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Geolocation</a></li>
+                <li class="nav-item"><a class="nav-link" href="./api.html">API</a></li>
+                <li class="nav-item"><a class="nav-link" href="./chat.html">Chat</a></li>
+            </ul>
+            <div class="d-flex gap-2 align-items-center">
+                <button id="btnTheme" class="btn btn-outline-secondary btn-sm" type="button" aria-pressed="false">🌗 Theme</button>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<main class="py-5">
+    <div class="container">
+        <div class="card map-card">
+            <div class="card-body p-4 p-lg-5">
+                <h1 class="h3 mb-2">Geolocation</h1>
+                <p class="text-body-secondary">Uses <code>navigator.geolocation.getCurrentPosition</code>. Map preview uses a static OSM tile source (no API key) for demo purposes.</p>
+                <div class="d-flex flex-wrap gap-2 mb-3">
+                    <button id="btnLocate" class="btn btn-primary">📍 Locate me</button>
+                    <button id="btnWatch" class="btn btn-outline-secondary">▶ Start watch</button>
+                    <button id="btnStopWatch" class="btn btn-outline-danger" disabled>⏹ Stop watch</button>
+                </div>
+                <div class="row g-4 align-items-start">
+                    <div class="col-lg-6">
+                        <div class="table-responsive">
+                            <table class="table table-sm mb-0 align-middle">
+                                <tbody>
+                                <tr><th scope="row">Status</th><td id="status">Idle</td></tr>
+                                <tr><th scope="row">Latitude</th><td id="lat" class="kv">—</td></tr>
+                                <tr><th scope="row">Longitude</th><td id="lng" class="kv">—</td></tr>
+                                <tr><th scope="row">Accuracy (m)</th><td id="acc" class="kv">—</td></tr>
+                                <tr><th scope="row">Altitude (m)</th><td id="alt" class="kv">—</td></tr>
+                                <tr><th scope="row">Speed (m/s)</th><td id="spd" class="kv">—</td></tr>
+                                <tr><th scope="row">Heading (°)</th><td id="hdg" class="kv">—</td></tr>
+                                <tr><th scope="row">Timestamp</th><td id="ts" class="kv">—</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="map-box bg-body border">
+                            <img id="mapImg" alt="Map preview" class="map-img" src="" />
+                        </div>
+                        <div class="form-text">Static map preview from OSM tiles (for demo). For full interactivity consider Leaflet.js later.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<div class="toast-container position-fixed top-0 end-0 p-3">
+    <div id="toast" class="toast align-items-center border-0" role="status" aria-live="polite" aria-atomic="true">
+        <div class="d-flex">
+            <div class="toast-body"></div>
+            <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="./js/map.js" type="module"></script>
+</body>
+</html>

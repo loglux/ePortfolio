@@ -1,0 +1,10 @@
+:root { --card-radius: 1rem; }
+.card { border: 0; border-radius: var(--card-radius); box-shadow: 0 10px 24px rgba(0,0,0,.08); }
+.note-card { transition: transform .15s ease, box-shadow .2s ease; }
+.note-card:hover { transform: translateY(-2px); box-shadow: 0 14px 28px rgba(0,0,0,.12); }
+.form-floating > label.required::after { content:" *"; color: var(--bs-danger); }
+.empty-state { border: 2px dashed var(--bs-border-color); border-radius: var(--card-radius); }
+.badge-date { font-variant-numeric: tabular-nums; }
+.toast-container { z-index: 1080; }
+/* более контрастные кнопки для таймера */
+.btn { border-radius: 0.8rem; }

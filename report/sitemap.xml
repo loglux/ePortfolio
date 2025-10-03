@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url><loc>https://example.com/</loc></url>
+    <url><loc>https://example.com/index.html</loc></url>
+    <url><loc>https://example.com/tasks.html</loc></url>
+    <url><loc>https://example.com/canvas.html</loc></url>
+    <url><loc>https://example.com/forms.html</loc></url>
+    <url><loc>https://example.com/map.html</loc></url>
+    <url><loc>https://example.com/chat.html</loc></url>
+    <url><loc>https://example.com/api.html</loc></url>
+    <url><loc>https://example.com/about.html</loc></url>
+    <!-- Add report files too if you publish them on the site -->
+    <url><loc>https://example.com/report/report.md</loc></url>
+</urlset>
